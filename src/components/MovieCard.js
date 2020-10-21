@@ -8,7 +8,7 @@ function getMovieYear(movieDate) {
 function MovieCard(props) {
   const movie = props.movie;
   return (
-    <div>
+    <div onClick={props.onClick}>
       <h2>{movie.vote_average}</h2>
       <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} />
       <p>
