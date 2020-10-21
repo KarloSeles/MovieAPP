@@ -10,6 +10,13 @@ class MovieAPI {
 
     return data;
   }
+
+  async getMovieDetails(id) {
+    const response = await fetch(`${this.baseURL}${id}?api_key=${this.apiKey}`);
+    const data = await response.json();
+
+    return data;
+  }
 }
 
 export default new MovieAPI();
