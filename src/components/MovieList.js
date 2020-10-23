@@ -27,18 +27,24 @@ function MovieList() {
 
   return (
     <div>
-      {movies.map((movie) => (
-        <MovieCard
-          movie={movie}
-          key={movie.id}
-          onClick={() => setId(movie.id)}
-        />
-      ))}
+      <div className={id ? "detailsOpen" : "movie-card-container"}>
+        {movies.map((movie) => (
+          <MovieCard
+            movie={movie}
+            key={movie.id}
+            onClick={() => setId(movie.id)}
+          />
+        ))}
+        <div className="btn-container">
+          <button onClick={loadMoreBtn} type="button" className="load-more-btn">
+            Load
+          </button>
+        </div>
+      </div>
 
-      <button onClick={loadMoreBtn} type="button">
-        Load more
-      </button>
-      {id ? <MovieDetails id={id} /> : null}
+      <div className={"movie-details-show"}>
+        {id ? <MovieDetails id={id} onClick={() => setId(null)} /> : null}
+      </div>
     </div>
   );
 }
