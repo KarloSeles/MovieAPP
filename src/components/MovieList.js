@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import movieAPI from "../services/movieAPI";
 import MovieCard from "./MovieCard";
 import MovieDetails from "./MovieDetails";
+import LogIn from "./LogIn";
 
 function MovieList() {
   const [movies, setMovies] = useState([]);
@@ -27,6 +28,9 @@ function MovieList() {
 
   return (
     <div>
+      <div>
+        <LogIn />
+      </div>
       <div className={id ? "detailsOpen" : "movie-card-container"}>
         {movies.map((movie) => (
           <MovieCard
