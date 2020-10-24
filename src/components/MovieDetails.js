@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import movieAPI from "../services/movieAPI";
+import RateMovie from "./RateMovie";
 
 function getMovieYear(movieDate) {
   const year = new Date(movieDate);
@@ -33,6 +34,7 @@ function MovieDetails(props) {
         src={`https://image.tmdb.org/t/p/original${id.backdrop_path}`}
       />
       <h4 className="details-overview">{id.overview}</h4>
+      <RateMovie />
       <h3 className="detail-rating">Rating: {id.vote_average}</h3>
       <h3 className="detail-popularity">Popularity: {id.vote_count}</h3>
       <h3 className="detail-language">Language: {id.original_language}</h3>
