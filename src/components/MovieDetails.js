@@ -21,6 +21,12 @@ function MovieDetails(props) {
   if (!id) {
     return <div>loading...</div>;
   }
+  const proComp = id.production_companies
+    .map((name) => {
+      return name.name;
+    })
+    .join(", ");
+
   return (
     <div className="details-container">
       <button onClick={props.onClick} className="close-btn">
@@ -34,11 +40,11 @@ function MovieDetails(props) {
         src={`https://image.tmdb.org/t/p/original${id.backdrop_path}`}
       />
       <h4 className="details-overview">{id.overview}</h4>
-      <RateMovie />
+      <RateMovie id={id} />
       <h3 className="detail-rating">Rating: {id.vote_average}</h3>
       <h3 className="detail-popularity">Popularity: {id.vote_count}</h3>
       <h3 className="detail-language">Language: {id.original_language}</h3>
-      <h3 className="detail-production">Production companies:</h3>
+      <h3 className="detail-production">Production companies: {proComp}</h3>
     </div>
   );
 }
