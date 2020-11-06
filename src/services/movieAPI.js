@@ -41,6 +41,32 @@ class MovieAPI {
 
     return data;
   }
+
+  async rateMovie(id, session, value) {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ value: value }),
+    };
+    const response = await fetch(
+      `
+      https://api.themoviedb.org/3/movie/${id}/rating?api_key=${this.apiKey}&session_id=${session}`,
+      requestOptions
+    );
+    const data = await response.json();
+
+    return data;
+  }
+
+  async getUserRating(id, session) {
+    const response = await fetch(
+      `
+      https://api.themoviedb.org/3/movie/${id}/account_states?api_key=${this.apiKey}&session_id=${session}`
+    );
+    const data = await response.json();
+
+    return data;
+  }
 }
 
 export default new MovieAPI();
