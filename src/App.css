@@ -146,3 +146,57 @@ html {
 .details-container h3 {
   margin-left: 6rem;
 }
+
+.rating-btn {
+  cursor: pointer;
+}
+
+.rating-1 button:nth-child(-n + 1) {
+  color: #000000;
+  background-color: #db0909;
+}
+
+.rating-2 button:nth-child(-n + 2) {
+  color: #000000;
+  background-color: #db0909;
+}
+
+.rating-3 button:nth-child(-n + 3) {
+  color: #000000;
+  background-color: #db0909;
+}
+
+.rating-4 button:nth-child(-n + 4) {
+  color: #000000;
+  background-color: #db0909;
+}
+
+.rating-5 button:nth-child(-n + 5) {
+  color: #000000;
+  background-color: #db0909;
+}
+
+.rating-6 button:nth-child(-n + 6) {
+  color: #000000;
+  background-color: #db0909;
+}
+
+.rating-7 button:nth-child(-n + 7) {
+  color: #000000;
+  background-color: #db0909;
+}
+
+.rating-8 button:nth-child(-n + 8) {
+  color: #000000;
+  background-color: #db0909;
+}
+
+.rating-9 button:nth-child(-n + 9) {
+  color: #000000;
+  background-color: #db0909;
+}
+
+.rating-10 button:nth-child(-n + 10) {
+  color: #000000;
+  background-color: #db0909;
+}
