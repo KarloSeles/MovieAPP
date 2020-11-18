@@ -36,36 +36,38 @@ function RateMovie(props) {
 
   return (
     <div className={"rating-" + value}>
-      <button className="rating-btn" onClick={() => rateValue(1)}>
-        X
-      </button>
-      <button className="rating-btn" onClick={() => rateValue(2)}>
-        X
-      </button>
-      <button className="rating-btn" onClick={() => rateValue(3)}>
-        X
-      </button>
-      <button className="rating-btn" onClick={() => rateValue(4)}>
-        X
-      </button>
-      <button className="rating-btn" onClick={() => rateValue(5)}>
-        X
-      </button>
-      <button className="rating-btn" onClick={() => rateValue(6)}>
-        X
-      </button>
-      <button className="rating-btn" onClick={() => rateValue(7)}>
-        X
-      </button>
-      <button className="rating-btn" onClick={() => rateValue(8)}>
-        X
-      </button>
-      <button className="rating-btn" onClick={() => rateValue(9)}>
-        X
-      </button>
-      <button className="rating-btn" onClick={() => rateValue(10)}>
-        X
-      </button>
+      <div className="star-btns">
+        <button className="rating-btn" onClick={() => rateValue(10)}>
+          ☆
+        </button>
+        <button className="rating-btn" onClick={() => rateValue(9)}>
+          ☆
+        </button>
+        <button className="rating-btn" onClick={() => rateValue(8)}>
+          ☆
+        </button>
+        <button className="rating-btn" onClick={() => rateValue(7)}>
+          ☆
+        </button>
+        <button className="rating-btn" onClick={() => rateValue(6)}>
+          ☆
+        </button>
+        <button className="rating-btn" onClick={() => rateValue(5)}>
+          ☆
+        </button>
+        <button className="rating-btn" onClick={() => rateValue(4)}>
+          ☆
+        </button>
+        <button className="rating-btn" onClick={() => rateValue(3)}>
+          ☆
+        </button>
+        <button className="rating-btn" onClick={() => rateValue(2)}>
+          ☆
+        </button>
+        <button className="rating-btn" onClick={() => rateValue(1)}>
+          ☆
+        </button>
+      </div>
     </div>
   );
 }
