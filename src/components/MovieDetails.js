@@ -35,16 +35,26 @@ function MovieDetails(props) {
       <p className="details-name">
         {id.title} ({getMovieYear(id.release_date)})
       </p>
-      <img
-        className="details-img"
-        src={`https://image.tmdb.org/t/p/original${id.backdrop_path}`}
-      />
-      <h4 className="details-overview">{id.overview}</h4>
+      <div className="details-cover-container">
+        <img
+          className="details-img"
+          src={`https://image.tmdb.org/t/p/original${id.backdrop_path}`}
+        />
+        <h4 className="details-overview">{id.overview}</h4>
+      </div>
       <RateMovie id={id.id} />
-      <h3 className="detail-rating">Rating: {id.vote_average}</h3>
-      <h3 className="detail-popularity">Popularity: {id.vote_count}</h3>
-      <h3 className="detail-language">Language: {id.original_language}</h3>
-      <h3 className="detail-production">Production companies: {proComp}</h3>
+      <h3 className="detail-rating">
+        Rating: <p>{id.vote_average}</p>
+      </h3>
+      <h3 className="detail-popularity">
+        Popularity: <p>{id.vote_count}</p>
+      </h3>
+      <h3 className="detail-language">
+        Language: <p>{id.original_language}</p>
+      </h3>
+      <h3 className="detail-production">
+        Production companies: <p>{proComp}</p>
+      </h3>
     </div>
   );
 }
