@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "js-cookie": "^2.2.1",
     "react": "^16.14.0",
+    "react-app-polyfill": "^2.0.0",
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.3"
   },
@@ -24,12 +25,14 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "ie 11"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "ie 11"
     ]
   }
 }
