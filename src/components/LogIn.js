@@ -58,13 +58,19 @@ function LogIn() {
 
   return (
     <div>
+      <br />
       <a
+        className={session ? "loggedOut" : "loggedIn"}
         href={`https://www.themoviedb.org/authenticate/${pendingToken}?redirect_to=http://localhost:3000//approved`}
       >
         Log In
       </a>
 
-      <a href="http://localhost:3000" onClick={clearState}>
+      <a
+        className={session ? "loggedIn" : "loggedOut"}
+        href="http://localhost:3000"
+        onClick={clearState}
+      >
         Log Out
       </a>
     </div>
