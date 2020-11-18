@@ -1,71 +1,37 @@
+import httpClient from "./httpClient";
+import movieAPIRoutes from "./movieAPIRoutes";
+
 class MovieAPI {
-  baseURL = "https://api.themoviedb.org/3/movie/";
-  apiKey = "d2c77997d82f36d98cfeab0c8a259de7";
-
-  async getMovies(page) {
-    const response = await fetch(
-      `${this.baseURL}popular?api_key=${this.apiKey}&page=${page}`
-    );
-    const data = await response.json();
-
-    return data;
+  getMovies(page) {
+    return httpClient.get(movieAPIRoutes.getMovies(page));
   }
 
-  async getMovieDetails(id) {
-    const response = await fetch(`${this.baseURL}${id}?api_key=${this.apiKey}`);
-    const data = await response.json();
-
-    return data;
+  getMovieDetails(id) {
+    return httpClient.get(movieAPIRoutes.getMovieDetails(id));
   }
 
-  async requestToken() {
-    const response = await fetch(`
-    https://api.themoviedb.org/3/authentication/token/new?api_key=${this.apiKey}`);
-    const data = await response.json();
-
-    return data;
+  requestToken() {
+    return httpClient.get(movieAPIRoutes.requestToken());
   }
 
-  async getSession(token) {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ request_token: token }),
-    };
-    const response = await fetch(
-      `
-    https://api.themoviedb.org/3/authentication/session/new?api_key=${this.apiKey}`,
-      requestOptions
-    );
-    const data = await response.json();
-
-    return data;
+  getSession(token) {
+    return httpClient.post(movieAPIRoutes.getSession(token), {
+      request_token: token,
+    });
   }
 
-  async rateMovie(id, session, value) {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ value: value }),
-    };
-    const response = await fetch(
-      `
-      https://api.themoviedb.org/3/movie/${id}/rating?api_key=${this.apiKey}&session_id=${session}`,
-      requestOptions
-    );
-    const data = await response.json();
-
-    return data;
+  rateMovie(id, session, value) {
+    return httpClient.post(movieAPIRoutes.rateMovie(id, session, value), {
+      value: value,
+    });
   }
 
-  async getUserRating(id, session) {
-    const response = await fetch(
-      `
-      https://api.themoviedb.org/3/movie/${id}/account_states?api_key=${this.apiKey}&session_id=${session}`
-    );
-    const data = await response.json();
+  getUserRating(id, session) {
+    return httpClient.get(movieAPIRoutes.getUserRating(id, session));
+  }
 
-    return data;
+  getMovieByGenre(genre) {
+    return httpClient.get(movieAPIRoutes.getMovieByGenre(genre));
   }
 }
 
