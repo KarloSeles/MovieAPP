@@ -3,11 +3,15 @@ import movieAPI from "../services/movieAPI";
 import MovieCard from "./MovieCard";
 import MovieDetails from "./MovieDetails";
 import LogIn from "./LogIn";
+import RandomMovie from "./RandomMovie";
+import { FaRandom } from "react-icons/fa";
+import { FaSyncAlt } from "react-icons/fa";
 
 function MovieList() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(0);
   const [id, setId] = useState(null);
+  const [modalOpen, setModalOpen] = useState("closed");
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -28,25 +32,39 @@ function MovieList() {
 
   return (
     <div>
-      <div>
-        <LogIn />
-      </div>
-      <div className={id ? "detailsOpen" : "movie-card-container"}>
-        {movies.map((movie) => (
-          <MovieCard
-            movie={movie}
-            key={movie.id}
-            onClick={() => setId(movie.id)}
-          />
-        ))}
+      <div className={id || modalOpen == "open" ? "detailsOpen" : null}>
+        <div>
+          <LogIn />
+        </div>
+
+        <div className="movie-card-container">
+          {movies.map((movie) => (
+            <MovieCard
+              movie={movie}
+              key={movie.id}
+              onClick={() => setId(movie.id)}
+            />
+          ))}
+        </div>
+
         <div className="btn-container">
           <button onClick={loadMoreBtn} type="button" className="load-more-btn">
-            Load
+            <FaSyncAlt />
+          </button>
+          <button onClick={() => setModalOpen("open")} className="random-btn">
+            <FaRandom />
           </button>
         </div>
       </div>
+      <div className={id ? "modal-closed" : ""}>
+        <RandomMovie
+          className={"modal-" + modalOpen}
+          onClick={() => setModalOpen("closed")}
+          onSubmit={(idGenre) => setId(idGenre)}
+        />
+      </div>
 
-      <div className={"movie-details-show"}>
+      <div className={id || modalOpen == "open" ? "movie-details-show" : null}>
         {id ? <MovieDetails id={id} onClick={() => setId(null)} /> : null}
       </div>
     </div>
